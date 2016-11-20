@@ -14,8 +14,6 @@ import java.io.File;
 @EntityScan(basePackages = "project.dm")
 public class WebApplication extends SpringBootServletInitializer {
 
-    private static final String WEBAPP_DIR_LOCATION = "src/main/webapp";
-    private static final String CONTEXT_PATH = "";
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(WebApplication.class);
@@ -23,9 +21,6 @@ public class WebApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) throws Exception {
         SpringApplication.run(WebApplication.class, args);
-        File webappDir = new File(WEBAPP_DIR_LOCATION);
-        Tomcat tomcat = new Tomcat();
-        tomcat.addWebapp(CONTEXT_PATH, webappDir.getAbsolutePath());
     }
 
 
