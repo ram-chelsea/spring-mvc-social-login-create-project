@@ -24,12 +24,14 @@ public class Creativ {
     @Column(name = "NAME")
     private String creativName;
 
-    @Column(name = "CREATIONDATE")
+    @Column(name = "CREATION_DATE")
     private Date creationDate;
+
+    @Column(name = "LAST_EDITED_DATE")
+    private Date editDate;
 
     @Column(name = "RATE")
     private int rate;
-
 
     @ManyToOne
     @JoinColumn(name = "USER_ID")
@@ -81,5 +83,13 @@ public class Creativ {
 
     public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
+    }
+
+    public Date getEditDate() {
+        return editDate;
+    }
+
+    public void setEditDate(Date editDate) {
+        this.editDate = editDate;
     }
 }

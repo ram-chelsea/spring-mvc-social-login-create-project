@@ -33,9 +33,6 @@ public class User implements Serializable {
         @Column(name = "PROVIDER")
         private String provider;
 
-        @Column(name = "MEDAL")
-        private String medal;
-
         @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
         @JoinTable(
                 name = "USER_ROLE",
@@ -46,6 +43,14 @@ public class User implements Serializable {
 
         @OneToMany(mappedBy="user")
         private Set<Creativ> creativs = new HashSet<>();
+
+        @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+        @JoinTable(
+                name = "USER_MEDAL",
+                joinColumns = @JoinColumn(name = "USER_ID"),
+                inverseJoinColumns = @JoinColumn(name = "MEDAL_ID")
+        )
+        private Set<Medal> medals = new HashSet<>();
 
 
         public int getId() {
@@ -84,10 +89,6 @@ public class User implements Serializable {
                 this.provider = provider;
         }
 
-        public String getMedal() {return medal;    }
-
-        public void setMedal(String medal) { this.medal = medal; }
-
         public Set<Creativ> getCreativs() {
                 return creativs;
         }
@@ -105,4 +106,11 @@ public class User implements Serializable {
         }
 
 
+        public Set<Medal> getMedals() {
+            return medals;
+        }
+
+        public void setMedals(Set<Medal> medals) {
+            this.medals = medals;
+        }
 }

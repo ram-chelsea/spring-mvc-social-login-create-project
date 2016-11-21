@@ -23,8 +23,11 @@ public class Chapter {
     @Column(name = "SERIAL_NUMBER")
     private int serialNumber;
 
-    @Column(name = "CREATIONDATE")
+    @Column(name = "CREATION_DATE")
     private Date creationDate;
+
+    @Column(name = "LAST_EDITED_DATE")
+    private Date editDate;
 
     @Column(columnDefinition = "TEXT", name="CONTENT")
     private String content;
@@ -83,5 +86,21 @@ public class Chapter {
 
     public void setCreativ(Creativ creativ) {
         this.creativ = creativ;
+    }
+
+    public Date getEditDate() {
+        return editDate;
+    }
+
+    public void setEditDate(Date editDate) {
+        this.editDate = editDate;
+    }
+
+    public Set<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(Set<Tag> tags) {
+        this.tags = tags;
     }
 }
