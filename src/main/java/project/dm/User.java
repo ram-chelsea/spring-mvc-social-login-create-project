@@ -105,7 +105,6 @@ public class User implements Serializable {
                 this.roles = roles;
         }
 
-
         public Set<Medal> getMedals() {
             return medals;
         }
