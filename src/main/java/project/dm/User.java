@@ -1,6 +1,9 @@
 package project.dm;
 
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -8,6 +11,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "users")
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.NONE, getterVisibility = JsonAutoDetect.Visibility.NONE)
 public class User implements Serializable {
 
         @Id
@@ -16,9 +20,11 @@ public class User implements Serializable {
         private Integer id;
 
         @Column(name = "NAME")
+        @JsonProperty
         private String username;
 
         @Column(name = "PASSWORD")
+        @JsonProperty
         private String password;
 
         @Column(name = "ISBANNED")
@@ -29,9 +35,6 @@ public class User implements Serializable {
 
         @Column(name = "MEDAL")
         private String medal;
-
-        @Column(name = "PASSWORDCONFIRM")
-        private String passwordConfirm;
 
         @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
         @JoinTable(
@@ -102,11 +105,4 @@ public class User implements Serializable {
         }
 
 
-        public String getPasswordConfirm() {
-                return passwordConfirm;
-        }
-
-        public void setPasswordConfirm(String passwordConfirm) {
-                this.passwordConfirm = passwordConfirm;
-        }
 }
