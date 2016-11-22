@@ -34,6 +34,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().authorizeRequests()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/").permitAll();
+
+//                .antMatchers("/admin").hasRole("user")
+//
+//                .anyRequest().authenticated()
+//                .and()
+//                .formLogin()
+//                .loginPage("/login")
+//                .permitAll()
+//                .and()
+//                .logout()
+//                .permitAll();
+
     }
 
     @Autowired
