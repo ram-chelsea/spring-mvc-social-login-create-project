@@ -4,8 +4,10 @@ package project.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 import project.dm.User;
 import project.security.UserValidator;
 import project.service.SecurityService;
@@ -23,25 +25,8 @@ public class UserController {
     private UserValidator userValidator;
 
 
-
-    @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public String add(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, Model model) {
-        userValidator.validate(userForm, bindingResult);
-
-        if (bindingResult.hasErrors()) {
-            return "registration";
-        }
-
-        userService.save(userForm);
-
-        securityService.autologin(userForm.getUsername(), userForm.getPassword());
-
-        return "/registration";
-    }
-
-    @RequestMapping(value = {"/"}, method = RequestMethod.GET)
-    public
-    String index() {
+    @RequestMapping(value={"/"})
+    public String goStartPage(){
         return "index.html";
     }
 

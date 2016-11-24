@@ -35,16 +35,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/").permitAll();
 
+//        http
+//                .authorizeRequests()
+//                .antMatchers("/","/home", "/login", "/registration").permitAll()
 //                .antMatchers("/admin").hasRole("user")
-//
 //                .anyRequest().authenticated()
 //                .and()
 //                .formLogin()
-//                .loginPage("/login")
+//                .loginPage("/home")
+//                .defaultSuccessUrl("/home", true)
 //                .permitAll()
 //                .and()
 //                .logout()
-//                .permitAll();
+//                .permitAll()
+//                .logoutSuccessUrl("/home");
+
 
     }
 

@@ -1,0 +1,34 @@
+    <div class="container">
+        <!--<form class="form-horizontal" action='' method="POST">-->
+            <!--<fieldset>-->
+                <div id="legend">
+                    <legend class="">Register</legend>
+                </div>
+                <div class="control-group">
+
+                    <label class="control-label"  for="username">Username</label>
+                    <div class="controls">
+                        <input type="text" id="username" name="username" placeholder="" class="input-xlarge" ng-model="reg.user.username">
+                    </div>
+                </div>
+
+                <div class="control-group">
+
+                    <label class="control-label" for="password">Password</label>
+                    <div class="controls">
+                        <input type="password" id="password" name="password" placeholder="" class="input-xlarge" ng-model="reg.user.password">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="controls">
+                        <button ng-click="reg.addUser()">
+                            Register
+                        </button>
+                    </div>
+                </div>
+            <!--</fieldset>-->
+        <!--</form>-->
+    </div>
+
+
